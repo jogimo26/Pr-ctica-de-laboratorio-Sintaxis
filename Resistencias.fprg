@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Resistencias"/>
+        <attribute name="authors" value="Usuario"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-18 02:14:48 p.&#160;m."/>
+        <attribute name="created" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNjswOTowMDoyNCBhLsKgbS47MzQxMQ=="/>
+        <attribute name="edited" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNjsxMDoxOToxMCBhLsKgbS47MzszNTE4"/>
+        <attribute name="edited" value="bGFib3JhdG9yaW8gOTtERVNLVE9QLVZLQlM3R0I7MjAyNC0wOS0xODswMjoxNDo0OCBwLsKgbS47MTs0MDY5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Elecci&#243;n" type="Integer" array="False" size=""/>
+            <declare name="Res1" type="Real" array="False" size=""/>
+            <declare name="Res2" type="Real" array="False" size=""/>
+            <declare name="Res3" type="Real" array="False" size=""/>
+            <declare name="Rtotal" type="Real" array="False" size=""/>
+            <output expression="&quot;Por favor seleccione qu&#233; tipo de resistencia total quiere calcular&quot;" newline="True"/>
+            <output expression="&quot;1. Todas en serie&quot;" newline="True"/>
+            <output expression="&quot;2. Todas en paralelo&quot;" newline="True"/>
+            <output expression="&quot;3. Mixto (R1, R2 en serie, R3 en paralelo)&quot;" newline="True"/>
+            <output expression="&quot;4. Mixto (R1, R3 en serie, R2 en paralelo)&quot;" newline="True"/>
+            <output expression="&quot;5. Mixto (R2, R3 en serie, R1 en paralelo)&quot;" newline="True"/>
+            <input variable="Elecci&#243;n"/>
+            <if expression="Elecci&#243;n = 1 or Elecci&#243;n = 2 or Elecci&#243;n = 3 or Elecci&#243;n = 4 or Elecci&#243;n = 5">
+                <then>
+                    <output expression="&quot;&#191;Qu&#233; valor tienen sus 3 resistencias a calcular?&quot;" newline="True"/>
+                    <input variable="Res1"/>
+                    <input variable="Res2"/>
+                    <input variable="Res3"/>
+                    <if expression="Elecci&#243;n = 1">
+                        <then>
+                            <assign variable="Rtotal" expression="Res1 + Res2 + Res3"/>
+                            <output expression="&quot;El factor de correcci&#243;n de esta operaci&#243;n es de aumento de 5%.&quot;" newline="True"/>
+                            <assign variable="Rtotal" expression="Rtotal + (0.05*Rtotal)"/>
+                            <if expression="Rtotal &gt; 100">
+                                <then>
+                                    <output expression="&quot;ADVERTENCIA: La resistencia total se ha tenido que corregir debido a que la resistencia total en serie calculada ha sido de m&#225;s de 100 ohmios. El nuevo valor de la resistencia total es: &quot;" newline="False"/>
+                                    <assign variable="Rtotal" expression="Rtotal + 20"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;El valor total de su resistencia es: &quot;" newline="False"/>
+                                </else>
+                            </if>
+                        </then>
+                        <else>
+                            <if expression="Elecci&#243;n = 2">
+                                <then>
+                                    <assign variable="Rtotal" expression="1 / ((1/Res1) + (1/Res2) + (1/Res3))"/>
+                                    <output expression="&quot;El factor de correcci&#243;n de esta operaci&#243;n es de disminuci&#243;n de 10%.&quot;" newline="True"/>
+                                    <assign variable="Rtotal" expression="Rtotal - (0.1*Rtotal)"/>
+                                    <if expression="Rtotal &lt; 10">
+                                        <then>
+                                            <output expression="&quot;ADVERTENCIA: La resistencia total se ha tenido que corregir debido a que la resistencia total en paralelo calculada ha sido de menos de 10 ohmios. El nuevo valor de la resistencia total es: &quot;" newline="False"/>
+                                            <assign variable="Rtotal" expression="Rtotal - 2"/>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;El valor total de su resistencia es: &quot;" newline="False"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="Elecci&#243;n = 3">
+                                        <then>
+                                            <assign variable="Rtotal" expression="1 / ((1/(Res1+Res2)) + (1/Res3))"/>
+                                            <output expression="&quot;No hay un factor de correcci&#243;n para esta operaci&#243;n.&quot;" newline="True"/>
+                                            <output expression="&quot;El valor total de su resistencia es: &quot;" newline="False"/>
+                                        </then>
+                                        <else>
+                                            <if expression="Elecci&#243;n = 4">
+                                                <then>
+                                                    <assign variable="Rtotal" expression="1 / ((1/(Res1+Res3)) + (1/Res2))"/>
+                                                    <output expression="&quot;No hay un factor de correcci&#243;n para esta operaci&#243;n.&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="Rtotal" expression="1 / ((1/(Res2+Res3)) + (1/Res1))"/>
+                                                    <output expression="&quot;No hay un factor de correcci&#243;n para esta operaci&#243;n.&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                            <output expression="&quot;El valor total de su resistencia es: &quot;" newline="False"/>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <output expression="Rtotal" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Elecci&#243;n no v&#225;lida&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

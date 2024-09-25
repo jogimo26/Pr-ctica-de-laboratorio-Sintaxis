@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="numeros"/>
+        <attribute name="authors" value="Usuario"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-16 10:07:57 a.&#160;m."/>
+        <attribute name="created" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNDswNTo0NDo0MCBwLsKgbS47MzQyNg=="/>
+        <attribute name="edited" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNjsxMDowNzo1NyBhLsKgbS47MzszNTI2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Cadena1" type="String" array="False" size=""/>
+            <declare name="Cadena2" type="String" array="False" size=""/>
+            <declare name="N&#250;mero" type="Integer" array="False" size=""/>
+            <declare name="Divisibilidad5" type="Boolean" array="False" size=""/>
+            <declare name="Divisibilidad3" type="Boolean" array="False" size=""/>
+            <declare name="NumV&#225;lido" type="Boolean" array="False" size=""/>
+            <declare name="CadenaV&#225;lida" type="Boolean" array="False" size=""/>
+            <declare name="Cadena2V&#225;lida" type="Boolean" array="False" size=""/>
+            <declare name="PrimerCaracterCadena2" type="String" array="False" size=""/>
+            <declare name="NumeroPositivo" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Escriba una cadena de texto&quot;" newline="True"/>
+            <input variable="Cadena1"/>
+            <output expression="&quot;Escriba otra cadena de texto&quot;" newline="True"/>
+            <input variable="Cadena2"/>
+            <output expression="&quot;Escriba un n&#250;mero&quot;" newline="True"/>
+            <input variable="N&#250;mero"/>
+            <output expression="&quot;La primera cadena de texto ingresada tiene entre 5 a 10 caracteres?: &quot;" newline="False"/>
+            <assign variable="CadenaV&#225;lida" expression="Len(Cadena1) &gt;= 5 and Len(Cadena1) &lt;= 10"/>
+            <output expression="CadenaV&#225;lida" newline="True"/>
+            <output expression="&quot;La segunda cadena de texto tiene su primera letra (dentro del alfabeto Espa&#241;ol) como una may&#250;scula?: &quot;" newline="False"/>
+            <assign variable="PrimerCaracterCadena2" expression="Char(Cadena2,0)"/>
+            <assign variable="Cadena2V&#225;lida" expression="PrimerCaracterCadena2 = &quot;A&quot; or PrimerCaracterCadena2 = &quot;B&quot; or PrimerCaracterCadena2 = &quot;C&quot; or PrimerCaracterCadena2 = &quot;D&quot; or PrimerCaracterCadena2 = &quot;E&quot; or PrimerCaracterCadena2 = &quot;F&quot; or PrimerCaracterCadena2 = &quot;G&quot; or PrimerCaracterCadena2 = &quot;H&quot; or PrimerCaracterCadena2 = &quot;I&quot; or PrimerCaracterCadena2 = &quot;J&quot; or PrimerCaracterCadena2 = &quot;K&quot; or PrimerCaracterCadena2 = &quot;L&quot; or PrimerCaracterCadena2 = &quot;M&quot; or PrimerCaracterCadena2 = &quot;N&quot; or PrimerCaracterCadena2 = &quot;&#209;&quot; or PrimerCaracterCadena2 = &quot;O&quot; or PrimerCaracterCadena2 = &quot;P&quot; or PrimerCaracterCadena2 = &quot;Q&quot; or PrimerCaracterCadena2 = &quot;R&quot; or PrimerCaracterCadena2 = &quot;S&quot; or PrimerCaracterCadena2 = &quot;T&quot; or PrimerCaracterCadena2 = &quot;U&quot; or PrimerCaracterCadena2 = &quot;V&quot; or PrimerCaracterCadena2 = &quot;W&quot; or PrimerCaracterCadena2 = &quot;X&quot; or PrimerCaracterCadena2 = &quot;Y&quot; or PrimerCaracterCadena2 = &quot;Z&quot; or PrimerCaracterCadena2 = &quot;&#193;&quot; or PrimerCaracterCadena2 = &quot;&#201;&quot; or PrimerCaracterCadena2 = &quot;&#205;&quot; or PrimerCaracterCadena2 = &quot;&#211;&quot; or PrimerCaracterCadena2 = &quot;&#218;&quot; or PrimerCaracterCadena2 = &quot;&#196;&quot; or PrimerCaracterCadena2 = &quot;&#203;&quot; or PrimerCaracterCadena2 = &quot;&#207;&quot; or&#13;&#10;PrimerCaracterCadena2 = &quot;&#214;&quot; or PrimerCaracterCadena2 = &quot;&#220;&quot;"/>
+            <output expression="Cadena2V&#225;lida" newline="True"/>
+            <output expression="&quot;El n&#250;mero dado es positivo?: &quot;" newline="False"/>
+            <assign variable="NumeroPositivo" expression="N&#250;mero &gt;= 0"/>
+            <output expression="NumeroPositivo" newline="True"/>
+            <output expression="&quot;El n&#250;mero dado es divisible entre 3?: &quot;" newline="False"/>
+            <assign variable="Divisibilidad3" expression="N&#250;mero % 3 = 0"/>
+            <output expression="Divisibilidad3" newline="True"/>
+            <output expression="&quot;El n&#250;mero dado es divisible entre 5?: &quot;" newline="False"/>
+            <assign variable="Divisibilidad5" expression="N&#250;mero % 5 = 0"/>
+            <output expression="Divisibilidad5" newline="True"/>
+            <output expression="&quot;El n&#250;mero cumple con todos los criterios?: &quot;" newline="False"/>
+            <assign variable="NumV&#225;lido" expression="NumeroPositivo and (Divisibilidad3 or Divisibilidad5)"/>
+            <output expression="NumV&#225;lido" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

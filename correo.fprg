@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="correo"/>
+        <attribute name="authors" value="laboratorio 9"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-18 01:22:45 p.&#160;m."/>
+        <attribute name="created" value="bGFib3JhdG9yaW8gOTtERVNLVE9QLVZLQlM3R0I7MjAyNC0wOS0xMTswMToxNTowNiBwLsKgbS47Mzk0OA=="/>
+        <attribute name="edited" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNDswNTo0MzoyNiBwLsKgbS47MzszNTM5"/>
+        <attribute name="edited" value="bGFib3JhdG9yaW8gOTtERVNLVE9QLVZLQlM3R0I7MjAyNC0wOS0xODswMToyMjo0NSBwLsKgbS47Mjs0MDY1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="UsuarioCorreo" type="String" array="False" size=""/>
+            <declare name="Extensi&#243;n" type="String" array="False" size=""/>
+            <declare name="Dominio" type="String" array="False" size=""/>
+            <declare name="Nombre" type="String" array="False" size=""/>
+            <declare name="Edad" type="Integer" array="False" size=""/>
+            <declare name="Tama&#241;o" type="Integer" array="False" size=""/>
+            <declare name="Correo" type="String" array="False" size=""/>
+            <output expression="&quot;Introduzca el nombre de usuario de su correo electr&#243;nico.&quot;" newline="True"/>
+            <input variable="UsuarioCorreo"/>
+            <output expression="&quot;Introduzca el dominio de su correo. Puede ser gmail, outlook, yahoo, etc... El primer caracter de lo que entre tiene que ser una arroba.&quot;" newline="True"/>
+            <input variable="Dominio"/>
+            <output expression="&quot;Introduzca la extensi&#243;n de su correo. El primer caracter de esta parte debe de ser un punto.&quot;" newline="True"/>
+            <input variable="Extensi&#243;n"/>
+            <output expression="&quot;Introduzca su nombre. Debe de tener por lo menos 3 caracteres.&quot;" newline="True"/>
+            <input variable="Nombre"/>
+            <output expression="&quot;Introduzca su edad. Usted debe de tener entre 18 y 65 a&#241;os.&quot;" newline="True"/>
+            <input variable="Edad"/>
+            <assign variable="Correo" expression="UsuarioCorreo&amp;Dominio&amp;Extensi&#243;n"/>
+            <output expression="&quot;Su correo es: &quot;" newline="False"/>
+            <output expression="Correo" newline="True"/>
+            <declare name="NombreValidaci&#243;n" type="Boolean" array="False" size=""/>
+            <declare name="EdadValidaci&#243;n" type="Boolean" array="False" size=""/>
+            <declare name="DominioArroba" type="String" array="False" size=""/>
+            <assign variable="DominioArroba" expression="Char(Dominio, 0)"/>
+            <declare name="DominioValidaci&#243;n" type="Boolean" array="False" size=""/>
+            <assign variable="DominioValidaci&#243;n" expression="DominioArroba = &quot;@&quot;"/>
+            <declare name="Extensi&#243;nPunto" type="String" array="False" size=""/>
+            <assign variable="Extensi&#243;nPunto" expression="Char(Extensi&#243;n, 0)"/>
+            <declare name="Extensi&#243;nValidaci&#243;n" type="Boolean" array="False" size=""/>
+            <assign variable="Extensi&#243;nValidaci&#243;n" expression="Extensi&#243;nPunto = &quot;.&quot;"/>
+            <declare name="CorreoValidaci&#243;n" type="Boolean" array="False" size=""/>
+            <assign variable="CorreoValidaci&#243;n" expression="DominioValidaci&#243;n and Extensi&#243;nValidaci&#243;n"/>
+            <assign variable="NombreValidaci&#243;n" expression="Len(Nombre) &gt;= 3"/>
+            <assign variable="EdadValidaci&#243;n" expression="Edad &gt;= 18 and Edad &lt;= 65"/>
+            <output expression="&quot;La validez de su correo es: &quot;" newline="False"/>
+            <output expression="CorreoValidaci&#243;n" newline="True"/>
+            <output expression="&quot;La validez de su edad es: &quot;" newline="False"/>
+            <output expression="EdadValidaci&#243;n" newline="True"/>
+            <output expression="&quot;La validez de su nombre es: &quot;" newline="False"/>
+            <output expression="NombreValidaci&#243;n" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

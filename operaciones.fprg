@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="operaciones"/>
+        <attribute name="authors" value="Usuario"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-14 07:17:11 p.&#160;m."/>
+        <attribute name="created" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNDswNjo1MjozOCBwLsKgbS47MzQzMw=="/>
+        <attribute name="edited" value="VXN1YXJpbztERVNLVE9QLUROTU4yTEk7MjAyNC0wOS0xNDswNzoxNzoxMSBwLsKgbS47MTszNTM0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="x" type="Real" array="False" size=""/>
+            <declare name="y1" type="Real" array="False" size=""/>
+            <declare name="y2" type="Real" array="False" size=""/>
+            <declare name="y3" type="Real" array="False" size=""/>
+            <declare name="y4" type="Real" array="False" size=""/>
+            <declare name="y5" type="Real" array="False" size=""/>
+            <declare name="y6" type="Real" array="False" size=""/>
+            <output expression="&quot;Ingrese un valor para X&quot;" newline="True"/>
+            <input variable="x"/>
+            <assign variable="y1" expression="(2*x) + 5"/>
+            <output expression="&quot;y1 es igual a: &quot;" newline="False"/>
+            <output expression="y1" newline="True"/>
+            <assign variable="y2" expression="(3*y1) - 4"/>
+            <output expression="&quot;y2 es igual a: &quot;" newline="False"/>
+            <output expression="y2" newline="True"/>
+            <assign variable="y3" expression="Sqrt(y2+y1)"/>
+            <output expression="&quot;y3 es igual a: &quot;" newline="False"/>
+            <output expression="y3" newline="True"/>
+            <assign variable="y4" expression="(y3*y1) / (2+y2)"/>
+            <output expression="&quot;y4 es igual a: &quot;" newline="False"/>
+            <output expression="y4" newline="True"/>
+            <assign variable="y5" expression="(y4+y3)-(y2*y1)"/>
+            <output expression="&quot;y5 es igual a: &quot;" newline="False"/>
+            <output expression="y5" newline="True"/>
+            <assign variable="y6" expression="((2.71828^y5)*Sin(y1)) / (Log10(y2+y3)*Cos(y4)+1.5)"/>
+            <output expression="&quot;y6 es igual a: &quot;" newline="False"/>
+            <output expression="y6" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
